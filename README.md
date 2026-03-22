@@ -10,7 +10,7 @@
 
 ## Overview
 
-ShopEase is a medium-fidelity web UI platform that guides a user through a complete book purchase - from product page to order confirmation - with a focus on usability, accessibility, and interaction quality.
+ShopEase is a web UI platform that guides a user through a complete book purchase - from product page to order confirmation - with a focus on usability, accessibility, and interaction quality.
 
 The project was built in response to a baseline heuristic evaluation of a generic e-commerce UI. Three critical issues were identified and addressed:
 
