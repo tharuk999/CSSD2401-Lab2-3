@@ -1,12 +1,30 @@
 import { useNavigate } from 'react-router-dom'
 
-function MiniCover() {
+// Renders the book cover thumbnail. Falls back to a styled placeholder
+// if item.cover is not set.
+function MiniCover({ item }) {
+  if (item.cover) {
+    return (
+      <img
+        src={item.cover}
+        alt={`Cover of ${item.title}`}
+        className="w-14 h-20 object-cover flex-shrink-0 rounded-lg shadow-lg"
+        style={{ boxShadow: '2px 0 0 #f0a000' }}
+      />
+    )
+  }
+
+  // Fallback: CSS-drawn placeholder
   return (
-    <div className="w-14 h-20 flex-shrink-0 rounded-lg shadow-lg overflow-hidden"
+    <div
+      className="w-14 h-20 flex-shrink-0 rounded-lg shadow-lg overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #1a1c34 0%, #0d0e1f 100%)', boxShadow: '2px 0 0 #f0a000' }}
-      aria-hidden="true">
+      aria-hidden="true"
+    >
       <div className="h-full flex flex-col justify-between p-2">
-        <p className="font-display text-amber-400 text-xs leading-tight italic">DoET</p>
+        <p className="font-display text-amber-400 text-xs leading-tight italic">
+          {item.title.split(' ').map(w => w[0]).join('').slice(0, 4)}
+        </p>
         <div className="w-5 h-px bg-amber-500/60" />
       </div>
     </div>
@@ -21,8 +39,10 @@ export default function CartPage({ cartItems, onRemove }) {
   return (
     <main id="main-content" className="relative max-w-5xl mx-auto px-5 py-12" tabIndex={-1}>
       <div aria-hidden="true" className="pointer-events-none fixed inset-0">
-        <div className="absolute top-1/3 right-1/3 w-80 h-80 rounded-full opacity-8"
-          style={{ background: 'radial-gradient(circle, #f0a000 0%, transparent 70%)', filter: 'blur(90px)' }} />
+        <div
+          className="absolute top-1/3 right-1/3 w-80 h-80 rounded-full opacity-8"
+          style={{ background: 'radial-gradient(circle, #f0a000 0%, transparent 70%)', filter: 'blur(90px)' }}
+        />
       </div>
 
       <div className="relative z-10">
@@ -46,11 +66,12 @@ export default function CartPage({ cartItems, onRemove }) {
             {/* Items */}
             <div className="md:col-span-2 space-y-3">
               {cartItems.map((item, idx) => (
-                <div key={item.id}
+                <div
+                  key={item.id}
                   className="card flex gap-4 items-center page-enter"
                   style={{ animationDelay: `${idx * 0.06}s` }}
                 >
-                  <MiniCover />
+                  <MiniCover item={item} />
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-white truncate">{item.title}</p>
                     <p className="text-sm text-night-300 mt-0.5">{item.author}</p>
