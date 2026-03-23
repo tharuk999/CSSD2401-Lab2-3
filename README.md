@@ -10,7 +10,7 @@
 
 ## Overview
 
-ShopEase is a web UI platform that guides a user through a complete book purchase - from product page to order confirmation - with a focus on usability, accessibility, and interaction quality.
+ShopEase is a web UI platform that guides a user through a complete book purchase, from product page to order confirmation, with a focus on usability, accessibility, and interaction quality.
 
 The project was built in response to a baseline heuristic evaluation of a generic e-commerce UI. Three critical issues were identified and addressed:
 
@@ -171,7 +171,7 @@ shopease/
       CartPage.jsx            # Item list, order summary sidebar
       CheckoutPage.jsx        # Validated form with error summary and focus management
       ConfirmationPage.jsx    # SVG checkmark draw, order details, shipping summary
-  report.pdf                  # Lab 2 and 3 written report
+  CSSD2401 Lab2_3.pdf         # Lab 2 and 3 written report
 ```
 
 ---
@@ -190,7 +190,7 @@ These are documented trade-offs, not oversights:
 
 ## Report
 
-A full written report (`report.pdf`) is included in the root of this project. It covers:
+A full written report (`CSSD2401 Lab2_3.pdf`) is included in the root of this project. It covers:
 
 - Baseline heuristic evaluation with severity ratings
 - Design ideation and weighted decision matrix
